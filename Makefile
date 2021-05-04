@@ -23,9 +23,7 @@ serve: _includes/pubs.html
 clean:
 	$(RM) -r _site _includes/pubs.html
 
-DEPLOY_HOST ?= https://publishing.andrew.cmu.edu/
-DEPLOY_PATH ?= collections/aced/
-RSYNC := rsync --compress --recursive --checksum --itemize-changes --delete -e ssh
-
+DEPLOY_HOST ?= cmu-awps
+DEPLOY_PATH ?= /collections/incepts/
 deploy:
-	$(RSYNC) _site/ $(DEPLOY_HOST):$(DEPLOY_PATH)
+	rclone sync -P _site/ $(DEPLOY_HOST):$(DEPLOY_PATH)

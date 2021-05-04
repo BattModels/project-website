@@ -31,8 +31,6 @@ navigation:
     link: index.html
   - title: Team
     link: index.html#people
-  - title: Use Cases
-    link: research.html
   - title: News
     link: index.html#news
   - title: Publications

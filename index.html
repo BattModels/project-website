@@ -5,27 +5,21 @@ notitle: true
 
 # groups of columns of {roles: list, width: num, image: bool}
 role-tables:
-- - roles: [leadership, postdoc, staff]
-    width: 5
-    image: true
-  - roles: [grad, collab]
+- - roles: [member]
     width: 5
     image: true
 
 ---
 
 <div class="jumbotron">
-  <h1>ACED: Accelerated Computational Electrochemical systems Discovery</h1>
-
+  <h1>INCEPTS: Infrastructure Networks for Charging EVs through Physics-based Transient Systems </h1>
   <p>
-      Two key efforts to curb global greenhouse gas emissions involve reducing CO<sub>2</sub> into energy-dense liquid fuels and replacing the energy-intensive Haber-Bosch process for nitrogen reduction with an electrochemical alternative. In addition, efforts to electrify long-distance trucking or aviation are limited by the low-energy density of modern lithium-ion chemistries compared to petroleum fuels. Novel materials can address both of these challenges; however, systematic, theoretical evaluations of candidate material systems in-silico are limited to small design spaces and low-fidelity screening that fail to model realistic operating conditions.</p>
-    <p>
-The goal of this project is to alter this paradigm by enabling rapid, high-fidelity screening of large numbers of electrochemical functional materials for use in new energy technologies. The team brings together complementary expertise in advanced computing, numerical methods, and materials science.  Overall, the team expects to accelerate the overall energy material development and optimization process by 80%.
-    </p>
+    <b>INCEPTS</b> is a patent-pending technology for simulating real-world electric vehicle performance, by using a high-fidelity battery and vehicle dynamics incorporating local conditions. We're currently using INCEPTS to guide policy and investments for cost-effective and equitable charger placement.
+  </p>
 </div>
 
 <section>
-    <h2>Research</h2>
+    <h2>Use Cases</h2>
     <div class="card-columns">
         {% comment %}
         Sort the projects by date, putting those without dates last
@@ -41,7 +35,7 @@ The goal of this project is to alter this paradigm by enabling rapid, high-fidel
 </section>
 
 <div id="people">
-    <h2>People</h2>
+    <h2>Team</h2>
     {% for role-table in page.role-tables %}
         <section class="people row justify-content-between">
             {% for role-column in role-table %}

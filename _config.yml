@@ -29,6 +29,12 @@ collections:
 navigation:
   - title: Home
     link: index.html
+  - title: Trip Planning
+    link: tripplanning.html
+  - title: Fleet Analysis
+    link: fleetanalysis.html
+  - title: Charger Placement
+    link: chargerplacement.html
   - title: Team
     link: index.html#people
   - title: News

@@ -29,6 +29,8 @@ collections:
 navigation:
   - title: Home
     link: index.html
+  - title: Motivation
+    link: motivation.html
 #  - title: Trip Planning
 #    link: tripplanning.html
 #  - title: Fleet Analysis

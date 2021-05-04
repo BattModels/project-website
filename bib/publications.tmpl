@@ -21,6 +21,9 @@
 						height="16" alt="PDF" />
 					{%- endif %}
 				<a href="{{ url|escape }}">{{ entry|title }}</a>.
+				{%- elif entry.fields['doi'] %}
+					{%- set doi = entry.fields['doi'] %}
+					<a href="https://doi.org/{{ doi|escape }}">{{ entry|title }}</a>.
 				{%- else %}
 				{{ entry|title }}.
 				{%- endif %}

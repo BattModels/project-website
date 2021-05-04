@@ -7,6 +7,8 @@ description: |
 people:
   - matt
   - alexius
+  - ssripad
+  - alec
   - venkat
 
 layout: project

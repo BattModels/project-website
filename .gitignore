@@ -5,3 +5,4 @@ _includes/pubs.html
 Icon*
 */Icon*
 .jekyll-cache/*
+.DS_Store

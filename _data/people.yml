@@ -22,3 +22,18 @@ alexius:
     image: img/people/Alexius_Wadell.jpg
     bio: Mechanical Engineering
     email: awadell [at] andrew [dot] cmu [dot] edu
+
+alec:
+    display_name: "Alec Bills"
+    role: member
+    image: img/people/Bills_Alexander_A.jpg
+    bio: Mechanical Engineering
+    email: abills [at] andrew [dot] cmu [dot] edu
+
+ssripad:
+    display_name: "Shashank Sripad"
+    role: member
+    image: img/people/Shashank.png
+    bio: Mechanical Engineering
+    email: ssripad [at] cmu [dot] edu
+    webpage: "http://andrew.cmu.edu/user/ssripad/"

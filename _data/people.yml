@@ -1,7 +1,7 @@
 
 venkat:
     display_name: "Venkat Viswanathan"
-    webpage: "http://www.andrew.cmu.edu/user/venkatv/index.html#"
+    webpage: "https://www.andrew.cmu.edu/user/venkatv/index.html#"
     role: member
     image: img/people/Venkat_Viswanathan.png
     bio: Associate Professor of Mechanical Engineering, Carnegie Mellon University
@@ -36,4 +36,4 @@ ssripad:
     image: img/people/Shashank.png
     bio: Mechanical Engineering
     email: ssripad [at] cmu [dot] edu
-    webpage: "http://andrew.cmu.edu/user/ssripad/"
+    webpage: "https://andrew.cmu.edu/user/ssripad/"

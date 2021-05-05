@@ -9,7 +9,6 @@ _includes/pubs.html: bib/pubs.bib bib/publications.tmpl
 	mkdir -p _includes
 	$(BIBBLE) $+ > $@
 
-build serve: BASE_DIR ?= /collections/incepts
 build: _includes/pubs.html
 	jekyll build -b $(BASE_DIR)
 
@@ -27,6 +26,13 @@ clean:
 	$(RM) -r _site _includes/pubs.html
 
 DEPLOY_HOST ?= cmu-awps
-DEPLOY_PATH ?= /collections/incepts/
+BASE_DIR ?= /collections/incepts
 deploy:
-	rclone sync -P _site/ $(DEPLOY_HOST):$(DEPLOY_PATH)
+	rclone sync -P _site/ $(DEPLOY_HOST):$(BASE_DIR)
+
+test:
+	htmlproofer \
+	--only-4xx \
+	--check-html \
+	--url-swap '$(BASE_DIR)': \
+	_site

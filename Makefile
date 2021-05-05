@@ -10,7 +10,7 @@ _includes/pubs.html: bib/pubs.bib bib/publications.tmpl
 	$(BIBBLE) $+ > $@
 
 build: _includes/pubs.html
-	jekyll build
+	jekyll build -b $(BASE_DIR)
 
 # you can configure these at the shell, e.g.:
 # SERVE_PORT=5001 make serve
@@ -18,12 +18,21 @@ SERVE_HOST ?= 127.0.0.1
 SERVE_PORT ?= 5000
 
 serve: _includes/pubs.html
-	jekyll serve --port $(SERVE_PORT) --host $(SERVE_HOST)
+	jekyll serve -l -I \
+		-b $(BASE_DIR) \
+		--port $(SERVE_PORT) --host $(SERVE_HOST)
 
 clean:
 	$(RM) -r _site _includes/pubs.html
 
 DEPLOY_HOST ?= cmu-awps
-DEPLOY_PATH ?= /collections/incepts/
+BASE_DIR ?= /collections/incepts
 deploy:
-	rclone sync -P _site/ $(DEPLOY_HOST):$(DEPLOY_PATH)
+	rclone sync -P _site/ $(DEPLOY_HOST):$(BASE_DIR)
+
+test:
+	htmlproofer \
+	--only-4xx \
+	--check-html \
+	--url-swap '$(BASE_DIR)': \
+	_site

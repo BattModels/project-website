@@ -2,7 +2,7 @@
 title: Charging Infrastructure
 
 description: |
-  INCEPTS utilizes its fleet analysis and high-fidelity vehicle modeling software within a charger optimization algorithm to determine efficient and equitable charger locations that will reduce investment costs and meet the estimated demand.
+    By taking a probabilistic approach to predicting charger demand, INCEPTS can place chargers cost-effectively and equitably while reducing investment costs and meeting user demand.
 
 people:
   - matt
@@ -12,28 +12,16 @@ layout: project
 last-updated: 2021-05-04
 ---
 
-INCEPTS utilizes its fleet analysis and high-fidelity vehicle modeling software within a charger optimization algorithm to determine efficient and equitable charger locations that will reduce investment costs and meet the estimated demand.
+By simulating thousands of cars in an area, INCEPTS can predict charger demand and suggest charger locations to meet that demand. Unlike other approaches, which assume a constant range, INCEPTS directly simulates vehicles producing a richer picture of where charges are needed.
 
 ## Boston Case Study
 
-This analysis looked to test the capabilities of INCEPTS in identifying critical areas for charger placement based solely on the State of Charge (SoC) demand exhibited by the vehicles in this study. For this analysis, we ran 1000 vehicles that randomly spawned in Boston, MA and each had 50 destinations to reach. Note that the results obtained from this study are not representative of a final result from INCEPTS as several factors that would normally be considered have been excluded for this test.
+For this analysis, we simulated 1000 vehicles driving to 50 destinations sampled from a gaussian distribution with a standard deviation of 100km centered above Boston. As the cars drive about, we bin their state of charge (SOC) into regional hexagons, giving an *area* SOC estimate.
 
-<img src="{% link img/SoC_Hex.png %}" alt="Average SOC in Massachusetts" class="center">
+<img src="{% link img/charger_placement/average_soc.png %}" alt="Average SOC in Massachusetts" class="center">
 
-This image shows the average SoC of all of the vehicles that traveled through a particular hexagonal region. The darker red hexagons show regions where the average SoC is low while the brighter hexagons show regions where the average SoC is high.
+But the *average* SOC of cars in a region isn't that helpful and skews charger placement towards helping the average. We want to place chargers that serve everyone, even when they have a frantic morning and forgot to charge overnight. By fitting a beta distribution to our regional SOC estimates, we can compute the probability of a vehicle having a low SOC in a given region.
 
-<img src="{% link img/BostonAverage.png %}" alt="Average SOC in Boston" class="center">
+<img src="{% link img/charger_placement/low_soc.png %}" alt="Proability of less than 30% charge" class="center">
 
-This image shows the same information as the previous with a zoomed in focus on the Boston area itself.
-
-<img src="{% link img/BostonVar.png %}" alt="Proability of less than 30% charge" class="center">
-
-The statistical variation of the SoC within each region is also measured as shown in the above image. This is necessary to check the distribution of vehicle SoCs within the region to ensure that the demand is properly characterized. This check is important so that cases where, for example, an equal number of vehicles with high SoCs and low SoCs isn't misrepresented in the optimization scheme.
-
-<img src="{% link img/charge_deploy.png %}" class="center">
-
-This image shows the INCEPTS suggested charger locations in light blue and the existing charger locations in pink. In this analysis, INCEPTS was not given any knowledge of preexisting chargers that were deployed in Massachusetts. Due to the limited set of conditions INCEPTS was given, the optimization favored a solution that saw maximum coverage. As noted earlier, this placement solution should not be considered fully representative of the final solution INCEPTS will provide as the other conditions will change the placement once taken into account.
-
-## Future Case Studies
-
-A more in-depth analysis for the Boston area is currently in progress. To showcase the flexibility of the charger placement algorithm, case studies will also be performed for New York, Utah and California. These case studies will demonstrate the adaptability of the algorithm when considering different climates and provide interesting comparisons between what is currently deployed and what INCEPTS suggests.
+By taking a probabilistic approach, we can place charges to ensure a consistent level of service for everyone instead of assuming the *average* is representative.

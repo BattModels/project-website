@@ -21,7 +21,7 @@ people:
 <div>
     <h3> Massachusetts Case Study </h3>
     <p>
-    Text here
+    For this case study, the wind and temperature data came from the <a href=https://www.nrel.gov/grid/wind-toolkit.html>NREL Windtool Kit</a> and were recorded on 12/21/15 at 12:00 pm while the elevation data came from the <a href=https://apps.nationalmap.gov/bulkpqs/>USGS national elevation map</a>. To highlight the capabilities of the high-fidelity vehicle model within INCEPTS, a single route is used for the simulated vehicles in this analysis.
     </p>
 </div>
 
@@ -29,6 +29,36 @@ people:
 
 <div>
     <p>
-    More Text
+    The route chosen for this analysis, as seen in the above diagram, has one endpoint near Williamstown, MA and the other endpoint near Provincetown, MA. This route is approximately 263 miles long and was determined using the A* navigation algorithm built within INCEPTS. For these simulations, the electric vehicles stop following the route if the State of Charge (SoC) in the battery gets below 30%. The first vehicle chosen for this analysis is an electric pickup truck.
+    </p>
+</div>
+
+<img src="img/energybar.png" class="center">
+    
+<div>
+    <p>
+    The first set of simulations is designed to quantify how much the environmental factors impact the energy requirements of the vehicle. To do this, the environmental factors, elevation change and wind in this case, are add in one at a time to demonstrate their respective impacts. In addition, the vehicle traveled in both directions of the route to fully capture how the environment affected the energy requirements. The results of these simulations are shown in the above figure. The "No Environment" case is the same regardless of the direction of travel and was found to have an average energy requirement of 570.75 Wh/mi, a metric that is similar to the MPG metric for gas-powered vehicles. Looking at the simulations with all of the environmental factors, the vehicle traveling from West to East had an average energy requirement of 495.39 Wh/mi while the vehicle traveling East to West had an average energy requirement of 643.03 Wh/mi. This means that in the above scenario, the vehicle traveling from East to West required about 30% more energy per mile traveled than the vehicle traveling from West to East.
+    </p>
+</div>
+
+<img src="img/Figure5.png" class="center">
+    
+<div>
+    <p>
+    The image above shows the SoC trends that resulted from the aforementioned simulations where the solid lines are the SoC trends and the dotted lines are the elevation profiles along the traveled route. The Benchmark is the SoC trend for the vehicle in the "No Environment" simulation and represents what one would expect if only the manufacturer's specifications were considered. As a result of the larger energy requirement per mile, the vehicle traveling from East to West went 21 miles less than the vehicle traveling from West to East; a difference of about 15%. This is a significant change in the distance traveled which was due to the environmental impact on the vehicle's power requirements. Thus, it is important to include this type of analysis in electric vehicle trip planning, charger infrastructure deployment and other policies surrounding electric vehicles otherwise the vehicle may not be able to complete the route as expected or the chargers may not be properly deployed and will not be able to service the electric vehicles as needed.
+    </p>
+</div>
+
+<img src="img/Figure6.png" class="center">
+
+<div>
+    <p>
+    The image above shows the SoC trends that resulted from the similar simulations except now the vehicle is a Tesla Model 3. These trend lines show a similar story as above where the vehicle that traveled from West to East was able to complete its route with plenty of energy left in the battery while the vehicle that traveled from East to West hit the 30% SoC threshold 5 miles before it reached its destination.
+    </p>
+</div>
+    
+<div>
+    <p>
+    Checkout the <a href=publications.html>Publications</a> page to read published works that use this type of analysis.
     </p>
 </div>

@@ -5,6 +5,7 @@ all: build
 
 BIBBLE = bibble
 
+.DELETE_ON_ERROR: _includes/pubs.html
 _includes/pubs.html: bib/pubs.bib bib/publications.tmpl
 	mkdir -p _includes
 	$(BIBBLE) $+ > $@

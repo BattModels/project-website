@@ -21,6 +21,12 @@
 						height="16" alt="PDF" />
 					{%- endif %}
 				<a href="{{ url|escape }}">{{ entry|title }}</a>.
+				{%- elif entry.fields['doi'] %}
+					{%- if 'http' in entry.fields['doi'] %}
+						<a href="{{ entry.fields['doi']|escape }}">{{ entry|title }}</a>.
+					{%- else %}
+						<a href="https://dois.org/{{ entry.fields['doi']|escape }}">{{ entry|title }}</a>.
+					{%- endif %}
 				{%- else %}
 				{{ entry|title }}.
 				{%- endif %}

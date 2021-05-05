@@ -18,7 +18,7 @@ roles:
 front_page_news: 8
 
 # Base pathname for links.
-baseurl: ""
+base: "/collections/incepts"
 
 # make pages for the _projects folder
 collections:
@@ -28,18 +28,12 @@ collections:
 # Navigation bar links.
 navigation:
   - title: Home
-    link: index.html
+    link: /index.html
   - title: Motivation
-    link: motivation.html
-#  - title: Trip Planning
-#    link: tripplanning.html
-#  - title: Fleet Analysis
-#    link: fleetanalysis.html
-#  - title: Charger Placement
-#    link: chargerplacement.html
+    link: /motivation.html
   - title: Team
-    link: index.html#people
+    link: /index.html#people
   - title: News
-    link: index.html#news
+    link: /index.html#news
   - title: Publications
-    link: publications.html
+    link: /publications.html

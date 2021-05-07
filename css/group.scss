@@ -72,8 +72,8 @@ ul.news {
 }
 
 @media (min-width: 576px) {
-    .project-people { column-count: 2 }
-    .card-columns   { column-count: 2 }
+    .project-people { column-count: 3 }
+    .card-columns   { column-count: 3 }
 }
 
 @media (min-width: 768px) {
@@ -119,16 +119,30 @@ section {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 60%;
 }
+
+.center-medium{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+
+.center-large {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
 
 .person {
 
     margin-bottom: 10px;
 
     .profile {
-        height: 70px;
-        width: 70px;
+        height: 90px;
+        width: 90px;
     }
 
     .bio {

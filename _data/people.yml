@@ -2,7 +2,7 @@
 venkat:
     display_name: "Venkat Viswanathan"
     webpage: "https://www.andrew.cmu.edu/user/venkatv/index.html#"
-    role: member
+    role: projectpi
     image: img/people/Venkat_Viswanathan.png
     bio: Associate Professor of Mechanical Engineering, Carnegie Mellon University
     email: "venkvis [at] cmu [dot] edu"
@@ -10,7 +10,7 @@ venkat:
 matt:
     display_name: "Matthew Guttenberg"
     webpage: "https://www.linkedin.com/in/matthew-guttenberg/"
-    role: member
+    role: projectcoord
     image: img/people/Matt_Guttenberg.jpg
     bio: Mechanical Engineering
     email: mguttenb [at] andrew [dot] cmu [dot] edu
@@ -18,21 +18,21 @@ matt:
 alexius:
     display_name: "Alex Wadell"
     webpage: "https://www.linkedin.com/in/alexiuswadell/"
-    role: member
+    role: projectteam
     image: img/people/Alexius_Wadell.jpg
     bio: Mechanical Engineering
     email: awadell [at] andrew [dot] cmu [dot] edu
 
 alec:
     display_name: "Alec Bills"
-    role: member
+    role: support
     image: img/people/Bills_Alexander_A.jpg
     bio: Mechanical Engineering
     email: abills [at] andrew [dot] cmu [dot] edu
 
 ssripad:
     display_name: "Shashank Sripad"
-    role: member
+    role: support
     image: img/people/Shashank.png
     bio: Mechanical Engineering
     email: ssripad [at] cmu [dot] edu

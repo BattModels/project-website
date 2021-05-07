@@ -71,6 +71,7 @@ ul.news {
     }
 }
 
+/* Useful guide https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 @media (min-width: 576px) {
     .project-people { column-count: 2 }
     .card-columns   { column-count: 2 }
@@ -79,11 +80,13 @@ ul.news {
 @media (min-width: 768px) {
     .role.grad      { column-count: 1    }
     .project-people { column-count: 3    }
-    .card-columns   { column-count: 3;    
-                      display: flex;      
-                      column-gap: 0;     
+    .card-columns   { display: flex;
+                      flex-wrap: wrap;
+                      justify-content: start;      
+                      column-gap: 0;   
                       align-items: start; }
-    .card           { margin: 10px        }
+    .card           { margin: 10px;
+                      max-width: 350px;   }
 }
 
 .title img {
@@ -116,7 +119,8 @@ section {
         margin: 3px;
     }
 
-    .card-footer { padding: 0.5em }
+    .card-footer { padding: 0.5em; 
+                   border-radius: 0 0 20px 20px}
 }
 
 .center {

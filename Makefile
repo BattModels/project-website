@@ -10,7 +10,12 @@ _includes/pubs.html: bib/pubs.bib bib/publications.tmpl
 	mkdir -p _includes
 	$(BIBBLE) $+ > $@
 
-build: _includes/pubs.html
+.DELETE_ON_ERROR: _includes/related.html
+_includes/related.html: bib/related.bib bib/publications.tmpl
+	mkdir -p _includes
+	$(BIBBLE) $+ > $@
+
+build: _includes/pubs.html _includes/related.html
 	jekyll build -b $(BASE_DIR)
 
 # you can configure these at the shell, e.g.:
@@ -18,13 +23,14 @@ build: _includes/pubs.html
 SERVE_HOST ?= 127.0.0.1
 SERVE_PORT ?= 5000
 
-serve: _includes/pubs.html
+serve: _includes/pubs.html _includes/related.html
 	jekyll serve -l -I \
 		-b $(BASE_DIR) \
 		--port $(SERVE_PORT) --host $(SERVE_HOST)
 
 clean:
 	$(RM) -r _site _includes/pubs.html
+	$(RM) -r _site _includes/related.html
 
 DEPLOY_HOST ?= cmu-awps
 BASE_DIR ?= /collections/incepts

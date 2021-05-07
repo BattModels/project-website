@@ -70,10 +70,15 @@ ul.news {
         margin-top: 1em;
     }
 }
+.card-columns{
+    display: flex;
+    align-items: start;
+    column-gap: 0;
+}
 
 @media (min-width: 576px) {
-    .project-people { column-count: 3 }
-    .card-columns   { column-count: 3 }
+    .project-people { column-count: 2 }
+    .card-columns   { column-count: 2 }
 }
 
 @media (min-width: 768px) {
@@ -105,7 +110,8 @@ section {
 }
 
 .card {
-
+    margin: 10px;
+    border-radius: 20px;
     .profile {
         height: 40px;
         width: 40px;

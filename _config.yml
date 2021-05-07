@@ -14,9 +14,9 @@ roles:
   - key: projectpi
     name: Project Supervisor
   - key: projectcoord
-    name: Project Coordinator
+    name: Lead Developer
   - key: projectteam
-    name: Technical Team
+    name: Developer
   - key: support
     name: Support Staff
 

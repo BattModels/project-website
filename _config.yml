@@ -43,3 +43,5 @@ navigation:
     link: /index.html#news
   - title: Publications
     link: /publications.html
+  - title: Contact Us
+    link: /contact.html

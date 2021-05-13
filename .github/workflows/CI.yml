@@ -1,9 +1,9 @@
 name: CI
-on: push
+on: [push, pull_request]
 
 jobs:
   test:
-    name: Check Links
+    name: Test and Build Site
     runs-on: ubuntu-latest
 
     steps:
@@ -16,10 +16,31 @@ jobs:
         with:
           python-version: '3.x'
       - run: pip install bibble
-      - run: make build
+      - run: make -j build
       - run: make test
       - run: make _site-publish/
       - uses: actions/upload-artifact@v2
         with:
           name: site-publish
           path: _site-publish/
+  publish:
+    if: ${{ github.ref == 'refs/heads/master' }}
+    name: "Upload Publishable Site"
+    needs: test
+    runs-on: ubuntu-latest
+    concurrency:
+      group: publish
+      cancel-in-progress: true
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: site-publish
+          path: site-publish
+      - run: zip -r site-publish.zip site-publish
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          title: "Website"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          files: site-publish.zip

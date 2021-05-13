@@ -10,7 +10,7 @@ dirs := _data _layouts _posts _projects bib css img js php
 SRC := $(foreach dir, $(dirs), $(shell git ls-tree -r --name-only HEAD -- $(dir)/*))
 SRC += $(shell git ls-tree -r --name-only HEAD -- *.md)
 SRC += $(shell git ls-tree -r --name-only HEAD -- *.html)
-SRC += _config.yml
+SRC += _config.yml site.webmanifest browserconfig.xml
 
 .DELETE_ON_ERROR: _includes/%.html
 _includes/%.html: bib/%.bib bib/publications.tmpl

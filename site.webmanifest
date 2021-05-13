@@ -1,9 +1,13 @@
+---
+layout: none
+
+---
 {
     "name": "",
     "short_name": "",
     "icons": [
         {
-            "src": "/energy/incepts/img/browser_icons/android-chrome-192x192.png",
+            "src": "{{ site.base }}/img/browser_icons/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         }

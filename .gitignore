@@ -1,5 +1,7 @@
 _site
+_site-publish/
 _includes/pubs.html
+_includes/related.html
 /test-deploy.sh
 *#
 Icon*

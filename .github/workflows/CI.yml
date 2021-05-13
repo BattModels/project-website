@@ -18,3 +18,8 @@ jobs:
       - run: pip install bibble
       - run: make build
       - run: make test
+      - run: make _site-publish/
+      - uses: actions/upload-artifact@v2
+        with:
+          name: site-publish
+          path: _site-publish/

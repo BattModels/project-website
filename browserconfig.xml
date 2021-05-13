@@ -1,8 +1,12 @@
+---
+layout: none
+
+---
 <?xml version="1.0" encoding="utf-8"?>
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="/energy/incepts/img/browser_icons/mstile-150x150.png"/>
+            <square150x150logo src="{{ site.base }}/img/browser_icons/mstile-150x150.png"/>
             <TileColor>#2d89ef</TileColor>
         </tile>
     </msapplication>

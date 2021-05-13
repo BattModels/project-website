@@ -52,7 +52,7 @@ deploy-preview: _site/
 test: _site/
 	htmlproofer \
 	--http-status-ignore 999 \
-	--check-html \
+	--check-html --check-favicon --check-img-http \
 	--url-swap '$(BASE_DIR)': \
 	--typhoeus-config='{"headers":{"UserAgent":"htmlproofer"}}' \
 	_site

@@ -26,9 +26,9 @@ _site/ : _includes/pubs.html _includes/related.html $(SRC)
 
 # Build target for publishing to energy/incepts
 PUBLISH_DIR ?= /energy/incepts
-_site-publish/ : _publish.yml _includes/pubs.html _includes/related.html $(SRC)
+_site-publish/ : _includes/pubs.html _includes/related.html $(SRC)
 	rm -rf $@
-	jekyll build -d $(join $@, $(PUBLISH_DIR)) -b $(PUBLISH_DIR) --config _config.yml,_publish.yml
+	jekyll build -d $(join $@, $(PUBLISH_DIR)) -b $(PUBLISH_DIR)
 	touch $@
 
 # Build site

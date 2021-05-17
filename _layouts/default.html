@@ -10,14 +10,14 @@
               crossorigin="anonymous">
         <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{ site.base }}/css/group.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/group.css">
         <meta name="description" content="INCEPTS is a patent-pending technology for simulating real-world electric vehicle performance by using high-fidelity battery and vehicle dynamics that incorporate local and environmental conditions. We're currently using INCEPTS to guide policy and investments for cost-effective and equitable charger placement, generate fleet statistics for fleet analysis and trip planning for electric vehicles." />
-        <link rel="shortcut icon" href="{{ site.base }}/img/browser_icons/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ site.base }}/img/browser_icons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ site.base }}/img/browser_icons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ site.base }}/img/browser_icons/favicon-16x16.png">
-        <link rel="manifest" href="{{ site.base }}/site.webmanifest">
-        <link rel="mask-icon" href="{{ site.base }}/img/browser_icons/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="{{ site.baseurl }}/img/browser_icons/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/img/browser_icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/img/browser_icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/img/browser_icons/favicon-16x16.png">
+        <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+        <link rel="mask-icon" href="{{ site.baseurl }}/img/browser_icons/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#2d89ef">
         <meta name="theme-color" content="#ffffff">
     </head>
@@ -27,8 +27,8 @@
             <div class="header d-flex
                         flex-column
                         flex-md-row justify-content-md-between">
-                <a href="{{ site.base }}/index.html" class="">
-                    <img src="{{ site.base }}/img/logo.svg"
+                <a href="{{ site.baseurl }}/index.html" class="">
+                    <img src="{{ site.baseurl }}/img/logo.svg"
                          alt="INCEPTS logo" id="logo">
                 </a>
                 <ul class="nav nav-pills justify-content-center">
@@ -48,7 +48,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link {{ maybe-active }}"
-                               href="{{ site.base }}{{ item.link }}">
+                               href="{{ site.baseurl }}{{ item.link }}">
                                 {{ item.title }}
                             </a>
                         </li>
@@ -82,6 +82,6 @@
 
         <!-- Support retina images. -->
         <script type="text/javascript"
-                src="{{ site.base }}/js/srcset-polyfill.js"></script>
+                src="{{ site.baseurl }}/js/srcset-polyfill.js"></script>
     </body>
 </html>

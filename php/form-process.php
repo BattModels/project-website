@@ -30,7 +30,7 @@ if (empty($_POST["message"])) {
     $message = $_POST["message"];
 }
 
-$EmailTo = "mguttenb@andrew.cmu.edu, venkvis@cmu.edu";
+$EmailTo = "incepts@andrew.cmu.edu";
 $Subject = "New Message Received";
 
 // PREPARE EMAIL BODY TEXT

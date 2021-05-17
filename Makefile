@@ -23,7 +23,7 @@ _site/ : _includes/pubs.html _includes/related.html $(SRC)
 	touch $@
 
 # Build target for publishing to energy/incepts
-_site-publish/ : _includes/pubs.html _includes/related.html $(SRC)
+_site-publish/ : _publish.yml _includes/pubs.html _includes/related.html $(SRC)
 	jekyll build -d $@ --config _config.yml,_publish.yml
 	touch $@
 

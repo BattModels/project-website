@@ -9,3 +9,4 @@ Icon*
 .jekyll-cache/*
 .DS_Store
 .jekyll-*
+*.zip

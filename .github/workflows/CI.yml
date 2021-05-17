@@ -11,18 +11,24 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3
-      - run: gem install jekyll html-proofer
+          bundler-cache: true
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - run: pip install bibble
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - run: python -m pip install -r requirements.txt
       - run: make -j build
-      - run: make test
-      - run: make _site-publish/
+      - run: make -j test
+      - run: make -j site-publish.zip
       - uses: actions/upload-artifact@v2
         with:
           name: site-publish
-          path: _site-publish/
+          path: site-publish.zip
   publish:
     if: ${{ github.ref == 'refs/heads/master' }}
     name: "Upload Publishable Site"
@@ -35,8 +41,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: site-publish
-          path: _site-publish/
-      - run: make site-publish.zip
+          path: site-publish.zip
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           title: "Website"

@@ -5,6 +5,11 @@ all: build
 
 BIBBLE = bibble
 
+# Install Gemfiles
+Gemfile.lock: Gemfile
+	bundle install
+	touch $@
+
 # Source Files
 dirs := _data _layouts _posts _projects _includes bib css img js php
 SRC := $(foreach dir, $(dirs), $(shell git ls-tree -r --name-only HEAD -- $(dir)/*))
@@ -19,16 +24,16 @@ _includes/%.html: bib/%.bib bib/publications.tmpl
 
 # Build target for previewing at collections/incepts
 PREVIEW_DIR ?= /collections/incepts
-_site/ : _includes/pubs.html _includes/related.html $(SRC)
+_site/ : Gemfile.lock _includes/pubs.html _includes/related.html $(SRC)
 	rm -rf $@
-	jekyll build -d $(join $@, $(PREVIEW_DIR)) -b $(PREVIEW_DIR)
+	bundle exec jekyll build -d $(join $@, $(PREVIEW_DIR)) -b $(PREVIEW_DIR)
 	touch $@
 
 # Build target for publishing to energy/incepts
 PUBLISH_DIR ?= /energy/incepts
-_site-publish/ : _includes/pubs.html _includes/related.html $(SRC)
+_site-publish/ : Gemfile.lock _includes/pubs.html _includes/related.html $(SRC)
 	rm -rf $@
-	jekyll build -d $(join $@, $(PUBLISH_DIR)) -b $(PUBLISH_DIR)
+	bundle exec jekyll build -d $(join $@, $(PUBLISH_DIR)) -b $(PUBLISH_DIR)
 	touch $@
 
 # Build site
@@ -38,8 +43,8 @@ build: _site/
 # SERVE_PORT=5001 make serve
 SERVE_HOST ?= 127.0.0.1
 SERVE_PORT ?= 5000
-serve: _site/
-	jekyll serve -l -I \
+serve: Gemfile.lock _site/
+	bundle exec jekyll serve -l -I \
 		-b $(PREVIEW_DIR) -d $<$(PREVIEW_DIR) \
 		--port $(SERVE_PORT) --host $(SERVE_HOST)
 
@@ -52,16 +57,16 @@ deploy-publish: _site-publish/
 deploy-preview: _site/
 	rclone sync -P $<$(PREVIEW_DIR) $(DEPLOY_HOST):$(PREVIEW_DIR)
 
-test: _site/ _site-publish/
+test: Gemfile.lock _site/ _site-publish/
 	@echo "Checking preview version"
-	htmlproofer \
+	bundle exec htmlproofer \
 	--disable-external \
 	--check-html --check-favicon --check-img-http \
 	--typhoeus-config='{"headers":{"UserAgent":"htmlproofer"}}' \
 	_site
 
 	@echo "Checking published version"
-	htmlproofer \
+	bundle exec htmlproofer \
 	--http-status-ignore 999 \
 	--disable-external \
 	--check-html --check-favicon --check-img-http \

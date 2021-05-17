@@ -35,8 +35,8 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: site-publish
-          path: site-publish
-      - run: zip -r site-publish.zip site-publish
+          path: _site-publish/
+      - run: make site-publish.zip
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           title: "Website"

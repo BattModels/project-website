@@ -61,7 +61,7 @@ test: Gemfile.lock _site/ _site-publish/
 	@echo "Checking preview version"
 	bundle exec htmlproofer \
 	--disable-external \
-	--check-html --check-favicon --check-img-http \
+	--check-html --check-favicon --check-img-http --enforce-https \
 	--typhoeus-config='{"headers":{"UserAgent":"htmlproofer"}}' \
 	_site
 
@@ -69,7 +69,7 @@ test: Gemfile.lock _site/ _site-publish/
 	bundle exec htmlproofer \
 	--http-status-ignore 999 \
 	--disable-external \
-	--check-html --check-favicon --check-img-http \
+	--check-html --check-favicon --check-img-http --enforce-https \
 	--typhoeus-config='{"headers":{"UserAgent":"htmlproofer"}}' \
 	_site-publish/
 

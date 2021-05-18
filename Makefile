@@ -33,6 +33,7 @@ _site/ : Gemfile.lock _includes/pubs.html _includes/related.html $(SRC)
 PUBLISH_DIR ?= /energy/incepts
 _site-publish/ : Gemfile.lock _includes/pubs.html _includes/related.html $(SRC)
 	rm -rf $@
+	JEKYLL_ENV=production \
 	bundle exec jekyll build -d $(join $@, $(PUBLISH_DIR)) -b $(PUBLISH_DIR)
 	touch $@
 
@@ -43,7 +44,7 @@ build: _site/
 # SERVE_PORT=5001 make serve
 SERVE_HOST ?= 127.0.0.1
 SERVE_PORT ?= 5000
-serve: Gemfile.lock _site/
+serve: _site/ Gemfile.lock
 	bundle exec jekyll serve -l -I \
 		-b $(PREVIEW_DIR) -d $<$(PREVIEW_DIR) \
 		--port $(SERVE_PORT) --host $(SERVE_HOST)

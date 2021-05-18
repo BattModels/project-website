@@ -33,6 +33,7 @@ _site/ : Gemfile.lock _includes/pubs.html _includes/related.html $(SRC)
 PUBLISH_DIR ?= /energy/incepts
 _site-publish/ : Gemfile.lock _includes/pubs.html _includes/related.html $(SRC)
 	rm -rf $@
+	JEKYLL_ENV=production \
 	bundle exec jekyll build -d $(join $@, $(PUBLISH_DIR)) -b $(PUBLISH_DIR)
 	touch $@
 

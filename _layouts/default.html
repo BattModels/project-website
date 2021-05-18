@@ -20,6 +20,9 @@
         <link rel="mask-icon" href="{{ site.baseurl }}/img/browser_icons/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#2d89ef">
         <meta name="theme-color" content="#ffffff">
+        {% if site.google_analytics and jekyll.environment == 'production' %}
+        {% include analytics.html %}
+        {% endif %}
     </head>
     <body>
         <div class="container">
@@ -75,6 +78,9 @@
                 <p>
                     This project is led by a team from the <a href="https://www.meche.engineering.cmu.edu/">Mechanical Engineering Department</a> at
                     <a href="https://www.cmu.edu/">Carnegie Mellon University</a>
+                </p>
+                <p>
+                    <a href="https://www.cmu.edu/legal/">Legal Info</a>
                 </p>
             </div>
 

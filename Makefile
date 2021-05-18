@@ -43,7 +43,7 @@ build: _site/
 # SERVE_PORT=5001 make serve
 SERVE_HOST ?= 127.0.0.1
 SERVE_PORT ?= 5000
-serve: Gemfile.lock _site/
+serve: _site/ Gemfile.lock
 	bundle exec jekyll serve -l -I \
 		-b $(PREVIEW_DIR) -d $<$(PREVIEW_DIR) \
 		--port $(SERVE_PORT) --host $(SERVE_HOST)

@@ -38,7 +38,7 @@ jobs:
       group: publish
       cancel-in-progress: true
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: site-publish
           path: site-publish.zip
